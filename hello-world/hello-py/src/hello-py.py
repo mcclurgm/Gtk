@@ -6,19 +6,23 @@ class MyWindow(Gtk.Window):
     def __init__(self):
         Gtk.Window.__init__(self, title="Hello World")
 
-        self.box = Gtk.Box(spacing=6)
-        self.add(self.box)
+        grid = Gtk.Grid()
+        self.add(grid)
 
-        self.button1 = Gtk.Button(label="Hello")
-        self.button1.connect("clicked", self.button1_click)
-        self.box.pack_start(self.button1, True, True, 0)
-
-        self.button2 = Gtk.Button(label="Goodbye")
-        self.button2.connect("clicked", self.button2_click)
-        self.box.pack_start(self.button2, True, True, 0)
+        button1 = Gtk.Button(label="Button 1")
+        button2 = Gtk.Button(label="Button 2")
+        button3 = Gtk.Button(label="Button 3")
+        button4 = Gtk.Button(label="Button 4")
+        button5 = Gtk.Button(label="Button 5")
+        button6 = Gtk.Button(label="Button 6")
         
-        self.button3 = Gtk.Button(label="Another")
-        self.box.pack_start(self.button3, True, False, 0)
+        grid.add(button1)
+        grid.attach(button2, 1, 0, 2, 1)
+        grid.attach_next_to(button3, button1, Gtk.PositionType.BOTTOM, 1, 2)
+        grid.attach_next_to(button4, button3, Gtk.PositionType.RIGHT, 2, 1)
+        grid.attach(button5, 1, 2, 1, 1)
+        # grid.attach_next_to(button6, button5, Gtk.PositionType.RIGHT, 1, 1)
+        grid.attach(button6, 2, 2, 1, 1)
 
     def button1_click(self, widget):
         print("Hello World")
