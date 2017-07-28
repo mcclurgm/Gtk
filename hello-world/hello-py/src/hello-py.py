@@ -5,6 +5,7 @@ from gi.repository import Gtk
 class MyWindow(Gtk.Window):
     def __init__(self):
         Gtk.Window.__init__(self, title="Hello World")
+        self.set_border_width(10)
 
         grid = Gtk.Grid()
         self.add(grid)
@@ -23,11 +24,6 @@ class MyWindow(Gtk.Window):
         grid.attach(button5, 1, 2, 1, 1)
         # grid.attach_next_to(button6, button5, Gtk.PositionType.RIGHT, 1, 1)
         grid.attach(button6, 2, 2, 1, 1)
-
-    def button1_click(self, widget):
-        print("Hello World")
-    def button2_click(self, widget):
-        print("Goodbye World")
 
 win = MyWindow()
 win.connect("delete-event", Gtk.main_quit)
