@@ -92,18 +92,6 @@ class AccumulatorWindow : Window {
         sum = sum + int_value;
         sum_label.set_text (sum.to_string ());
     }
-
-    void iterate_add () {
-        var int_value = int.parse (entry.get_text ());
-        int_value ++;
-        entry.set_text(int_value.to_string ());
-    }
-
-    void iterate_sub () {
-        var int_value = int.parse (entry.get_text ());
-        int_value --;
-        entry.set_text(int_value.to_string ());
-    }
 }
 
 static int main (string[] args) {
